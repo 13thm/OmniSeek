@@ -1,7 +1,11 @@
 package com.thm.omniseek.controller;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.thm.omniseek.common.BaseResponse;
 import com.thm.omniseek.common.ErrorCode;
+import com.thm.omniseek.common.ResultUtils;
+import com.thm.omniseek.exception.ThrowUtils;
+import com.thm.omniseek.model.dto.SearchRequest;
 import com.thm.omniseek.model.entity.Code;
 import com.thm.omniseek.service.CodeService;
 import org.springframework.beans.factory.annotation.Autowired;
