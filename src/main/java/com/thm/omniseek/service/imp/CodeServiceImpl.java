@@ -9,7 +9,6 @@ import com.thm.omniseek.exception.BusinessException;
 import com.thm.omniseek.mapper.CodeMapper;
 import com.thm.omniseek.model.dto.SearchRequest;
 import com.thm.omniseek.model.entity.Code;
-import com.thm.omniseek.model.entity.User;
 import com.thm.omniseek.service.CodeService;
 import org.springframework.stereotype.Service;
 
@@ -32,8 +31,8 @@ public class CodeServiceImpl extends ServiceImpl<CodeMapper, Code> implements Co
         }
         String text = userQueryRequest.getKeyword();
         QueryWrapper<Code> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like(ObjectUtil.isEmpty(text),"codeContent",text);
-        queryWrapper.like(ObjectUtil.isEmpty(text),"codeLang",text);
+        queryWrapper.like(ObjectUtil.isEmpty(text), "codeContent", text);
+        queryWrapper.like(ObjectUtil.isEmpty(text), "codeLang", text);
         return queryWrapper;
     }
 }

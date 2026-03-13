@@ -4,7 +4,6 @@ package com.thm.omniseek.model.dto;
 import com.thm.omniseek.common.PageRequest;
 import lombok.Data;
 
-import javax.swing.*;
 import java.io.Serializable;
 import java.util.List;
 
