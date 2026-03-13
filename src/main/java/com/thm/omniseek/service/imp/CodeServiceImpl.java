@@ -20,8 +20,7 @@ public class CodeServiceImpl extends ServiceImpl<CodeMapper, Code> implements Co
     public Page<Code> listCodeVOByPage(SearchRequest query) {
         long current = query.getCurrent();
         long size = query.getPageSize();
-        Page<Code> userPage = this.page(new Page<>(current, size), this.getQueryWrapper(query));
-        return new Page<>(current, size, userPage.getTotal());
+        return this.page(new Page<>(current, size), this.getQueryWrapper(query));
     }
 
     @Override
@@ -31,8 +30,10 @@ public class CodeServiceImpl extends ServiceImpl<CodeMapper, Code> implements Co
         }
         String text = userQueryRequest.getKeyword();
         QueryWrapper<Code> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like(ObjectUtil.isEmpty(text), "codeContent", text);
-        queryWrapper.like(ObjectUtil.isEmpty(text), "codeLang", text);
+        if(ObjectUtil.isNotEmpty(text)){
+            queryWrapper.like(ObjectUtil.isEmpty(text), "code_content", text);
+            queryWrapper.like(ObjectUtil.isEmpty(text), "code_lang", text);
+        }
         return queryWrapper;
     }
 }

@@ -21,16 +21,16 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         String text = userQueryRequest.getKeyword();
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like(ObjectUtil.isEmpty(text),"userName",text);
-        queryWrapper.like(ObjectUtil.isEmpty(text),"userPhone",text);
+        if(ObjectUtil.isNotEmpty(text)) {
+            queryWrapper.like(ObjectUtil.isEmpty(text), "user_name", text);
+            queryWrapper.like(ObjectUtil.isEmpty(text), "user_phone", text);
+        }
         return queryWrapper;
     }
     @Override
     public Page<User> listUserVOByPage(SearchRequest userQuery) {
         long current = userQuery.getCurrent();
         long size = userQuery.getPageSize();
-        Page<User> userPage = this.page(new Page<>(current, size),
-                this.getQueryWrapper(userQuery));
-        return new Page<>(current, size, userPage.getTotal());
+        return this.page(new Page<>(current, size), this.getQueryWrapper(userQuery));
     }
 }

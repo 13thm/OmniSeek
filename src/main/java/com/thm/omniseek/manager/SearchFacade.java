@@ -10,20 +10,23 @@ import com.thm.omniseek.datasource.PhotoDataSource;
 import com.thm.omniseek.datasource.UserDataSource;
 import com.thm.omniseek.exception.BusinessException;
 import com.thm.omniseek.model.dto.SearchRequest;
+import com.thm.omniseek.model.entity.Code;
 import com.thm.omniseek.model.entity.Photo;
 import com.thm.omniseek.model.entity.User;
 import com.thm.omniseek.model.vo.SearchVO;
-import com.thm.omniseek.model.entity.Code;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.annotation.Resource;
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.stream.Collectors;
 
-@Component
+@Controller
 public class SearchFacade {
     @Resource
     private CodeDataSource codeDataSource;
@@ -38,6 +41,7 @@ public class SearchFacade {
         String searchText = searchRequest.getKeyword();
         long current = searchRequest.getCurrent();
         long pageSize = searchRequest.getPageSize();
+        SearchVO searchVO = new SearchVO();
         if (ObjectUtil.isNotEmpty(searchRequest.getType())) {
             List<SearchTypeEnum> listEnum = searchRequest.getType()
                     .stream()
@@ -46,7 +50,6 @@ public class SearchFacade {
                     .collect(Collectors.toList());
             // Map：Key=枚举类型，Value=对应的异步任务
             Map<SearchTypeEnum, CompletableFuture<?>> futureMap = new HashMap<>();
-
             // 创建任务并放入Map
             for (SearchTypeEnum typeEnum : listEnum) {
                 switch (typeEnum) {
@@ -92,7 +95,6 @@ public class SearchFacade {
             } catch (ExecutionException e) {
                 throw new BusinessException(ErrorCode.SYSTEM_ERROR, "任务执行失败"+ e.getCause().getMessage());
             }
-            SearchVO searchVO = new SearchVO();
             try {
                 // 准获取每个枚举对应的任务结果
                 if (futureMap.containsKey(SearchTypeEnum.CODE)) {
@@ -110,14 +112,12 @@ public class SearchFacade {
                     Page<Photo> photoPage = photoFuture.get();
                     searchVO.setPictureList(photoPage.getRecords());
                 }
-
-
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } catch (ExecutionException e) {
                 throw new BusinessException(ErrorCode.SYSTEM_ERROR,"CODE任务执行失败：" + e.getCause().getMessage());
             }
         }
-        return new SearchVO();
+        return searchVO;
     }
 }

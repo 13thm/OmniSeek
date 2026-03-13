@@ -3,9 +3,7 @@ package com.thm.omniseek.datasource;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.thm.omniseek.model.dto.SearchRequest;
 import com.thm.omniseek.model.entity.Code;
-import com.thm.omniseek.model.entity.User;
 import com.thm.omniseek.service.CodeService;
-import com.thm.omniseek.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +26,6 @@ public class CodeDataSource implements DataSource<Code> {
         query.setKeyword(searchText);
         query.setCurrent(pageNum);
         query.setPageSize(pageSize);
-        Page<Code> codeVOPage = codeService.listCodeVOByPage(query);
-        return codeVOPage;
+        return codeService.listCodeVOByPage(query);
     }
 }

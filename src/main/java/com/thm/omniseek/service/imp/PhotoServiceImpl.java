@@ -18,8 +18,7 @@ public class PhotoServiceImpl extends ServiceImpl<PhotoMapper, Photo> implements
     public Page<Photo> listPhotoVOByPage(SearchRequest query) {
         long current = query.getCurrent();
         long size = query.getPageSize();
-        Page<Photo> photoPage = this.page(new Page<>(current, size), this.getQueryWrapper(query));
-        return photoPage;
+        return this.page(new Page<>(current, size), this.getQueryWrapper(query));
     }
     @Override
     public QueryWrapper<Photo> getQueryWrapper(SearchRequest query) {
@@ -28,8 +27,10 @@ public class PhotoServiceImpl extends ServiceImpl<PhotoMapper, Photo> implements
         }
         String text = query.getKeyword();
         QueryWrapper<Photo> queryWrapper = new QueryWrapper<>();
-        queryWrapper.like(ObjectUtil.isEmpty(text), "photoUrl", text);
-        queryWrapper.like(ObjectUtil.isEmpty(text), "photoName", text);
+        if(ObjectUtil.isNotEmpty(text)){
+            queryWrapper.like(ObjectUtil.isEmpty(text), "photo_url", text);
+            queryWrapper.like(ObjectUtil.isEmpty(text), "photo_name", text);
+        }
         return queryWrapper;
     }
 }

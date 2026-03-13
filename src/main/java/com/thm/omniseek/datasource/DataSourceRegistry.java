@@ -5,7 +5,6 @@ import org.apache.poi.ss.formula.functions.T;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
@@ -13,8 +12,6 @@ import java.util.Map;
 /**
  * 数据源注册器
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
  */
 @Component
 public class DataSourceRegistry {
