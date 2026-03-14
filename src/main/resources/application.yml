@@ -2,33 +2,41 @@
 spring:
   application:
     name: Omniseek
-  # 新增：解决Swagger与Spring Boot 2.6+ 兼容性问题
+  # 解决Swagger与Spring Boot 2.6+ 兼容性问题
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
-  # 数据源配置：移到spring根节点下（核心修正）
+  # 数据源配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    # 补充必要连接参数，解决时区、字符集、SSL问题
     url: jdbc:mysql://localhost:3306/seach_db?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&allowPublicKeyRetrieval=true
     username: root
     password: 123456
+
+  # ==================== Elasticsearch 配置 ====================
+  elasticsearch:
+    uris: http://localhost:9200
+    # 如果有认证，取消注释以下配置
+    # username: elastic
+    # password: your-password
+    # 连接超时设置（可选）
+    connection-timeout: 5s
+    socket-timeout: 30s
+
 server:
   address: 0.0.0.0
   port: 8080
   servlet:
-    # cookie 30 天过期
     session:
       cookie:
         max-age: 2592000
 
 mybatis-plus:
   configuration:
-    # 建议开启驼峰转换（数据库下划线→Java驼峰），除非有特殊需求
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
   global-config:
     db-config:
-      logic-delete-field: isDelete # 全局逻辑删除的实体字段名
-      logic-delete-value: 1 # 逻辑已删除值（默认为 1）
-      logic-not-delete-value: 0 # 逻辑未删除值（默认为 0）
+      logic-delete-field: isDelete
+      logic-delete-value: 1
+      logic-not-delete-value: 0
