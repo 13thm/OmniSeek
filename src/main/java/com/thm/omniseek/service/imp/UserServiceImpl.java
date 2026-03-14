@@ -21,10 +21,11 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
         }
         String text = userQueryRequest.getKeyword();
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
-        if(ObjectUtil.isNotEmpty(text)) {
-            queryWrapper.like(ObjectUtil.isEmpty(text), "user_name", text);
-            queryWrapper.like(ObjectUtil.isEmpty(text), "user_phone", text);
-        }
+        queryWrapper.and(ObjectUtil.isNotEmpty(text), qw -> qw
+                .like("user_name", text)
+                .or()
+                .like("user_phone", text)
+        );
         return queryWrapper;
     }
     @Override

@@ -27,10 +27,11 @@ public class PhotoServiceImpl extends ServiceImpl<PhotoMapper, Photo> implements
         }
         String text = query.getKeyword();
         QueryWrapper<Photo> queryWrapper = new QueryWrapper<>();
-        if(ObjectUtil.isNotEmpty(text)){
-            queryWrapper.like(ObjectUtil.isEmpty(text), "photo_url", text);
-            queryWrapper.like(ObjectUtil.isEmpty(text), "photo_name", text);
-        }
+        queryWrapper.and(ObjectUtil.isNotEmpty(text), qw -> qw
+                .like("photo_url", text)
+                .or()
+                .like("photo_name", text)
+        );
         return queryWrapper;
     }
 }

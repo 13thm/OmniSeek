@@ -1,0 +1,1590 @@
+{
+  "openapi" : "3.0.1",
+  "info" : {
+    "title" : "API Documentation",
+    "version" : "1.0"
+  },
+  "paths" : {
+    "/code/add" : {
+      "post" : {
+        "summary" : "addCode",
+        "description" : "addCode",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "codeId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "userId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "codeContent" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "codeLang" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "createTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "updateTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "isDelete" : {
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/code/delete/{id}" : {
+      "delete" : {
+        "summary" : "deleteCode",
+        "description" : "deleteCode",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/code/update" : {
+      "put" : {
+        "summary" : "updateCode",
+        "description" : "updateCode",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "codeId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "userId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "codeContent" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "codeLang" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "createTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "updateTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "isDelete" : {
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/code/get/{id}" : {
+      "get" : {
+        "summary" : "getCodeById",
+        "description" : "getCodeById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "codeId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "userId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "codeContent" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "codeLang" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "createTime" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "updateTime" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "isDelete" : {
+                          "type" : "integer",
+                          "description" : ""
+                        }
+                      },
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/code/list" : {
+      "get" : {
+        "summary" : "listCodes",
+        "description" : "listCodes",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "array",
+                      "description" : "",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "codeId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "userId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "codeContent" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "codeLang" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "createTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "updateTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "isDelete" : {
+                            "type" : "integer",
+                            "description" : ""
+                          }
+                        },
+                        "description" : "com.thm.omniseek.model.entity.Code"
+                      }
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/code/listByUser/{userId}" : {
+      "get" : {
+        "summary" : "listCodesByUser",
+        "description" : "listCodesByUser",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "array",
+                      "description" : "",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "codeId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "userId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "codeContent" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "codeLang" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "createTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "updateTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "isDelete" : {
+                            "type" : "integer",
+                            "description" : ""
+                          }
+                        },
+                        "description" : "com.thm.omniseek.model.entity.Code"
+                      }
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/code/listByLang/{lang}" : {
+      "get" : {
+        "summary" : "listCodesByLang",
+        "description" : "listCodesByLang",
+        "parameters" : [ {
+          "name" : "lang",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "array",
+                      "description" : "",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "codeId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "userId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "codeContent" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "codeLang" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "createTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "updateTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "isDelete" : {
+                            "type" : "integer",
+                            "description" : ""
+                          }
+                        },
+                        "description" : "com.thm.omniseek.model.entity.Code"
+                      }
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/add" : {
+      "post" : {
+        "summary" : "addUser",
+        "description" : "addUser",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "userId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "userName" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "userPhone" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "createTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "updateTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "isDelete" : {
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/delete/{id}" : {
+      "delete" : {
+        "summary" : "deleteUser",
+        "description" : "deleteUser",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/update" : {
+      "put" : {
+        "summary" : "updateUser",
+        "description" : "updateUser",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "userId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "userName" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "userPhone" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "createTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "updateTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "isDelete" : {
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/get/{id}" : {
+      "get" : {
+        "summary" : "getUserById",
+        "description" : "getUserById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "userId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "userName" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "userPhone" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "createTime" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "updateTime" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "isDelete" : {
+                          "type" : "integer",
+                          "description" : ""
+                        }
+                      },
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/list" : {
+      "get" : {
+        "summary" : "listUsers",
+        "description" : "listUsers",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "array",
+                      "description" : "",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "userId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "userName" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "userPhone" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "createTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "updateTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "isDelete" : {
+                            "type" : "integer",
+                            "description" : ""
+                          }
+                        },
+                        "description" : "com.thm.omniseek.model.entity.User"
+                      }
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photo/add" : {
+      "post" : {
+        "summary" : "addPhoto",
+        "description" : "addPhoto",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "photoId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "userId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "photoUrl" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "photoName" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "createTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "updateTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "isDelete" : {
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photo/delete/{id}" : {
+      "delete" : {
+        "summary" : "deletePhoto",
+        "description" : "deletePhoto",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photo/update" : {
+      "put" : {
+        "summary" : "updatePhoto",
+        "description" : "updatePhoto",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "photoId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "userId" : {
+                    "type" : "integer",
+                    "description" : ""
+                  },
+                  "photoUrl" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "photoName" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "createTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "updateTime" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "isDelete" : {
+                    "type" : "integer",
+                    "description" : ""
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "boolean",
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photo/get/{id}" : {
+      "get" : {
+        "summary" : "getPhotoById",
+        "description" : "getPhotoById",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "photoId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "userId" : {
+                          "type" : "integer",
+                          "description" : ""
+                        },
+                        "photoUrl" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "photoName" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "createTime" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "updateTime" : {
+                          "type" : "string",
+                          "description" : ""
+                        },
+                        "isDelete" : {
+                          "type" : "integer",
+                          "description" : ""
+                        }
+                      },
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photo/list" : {
+      "get" : {
+        "summary" : "listPhotos",
+        "description" : "listPhotos",
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "array",
+                      "description" : "",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "photoId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "userId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "photoUrl" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "photoName" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "createTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "updateTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "isDelete" : {
+                            "type" : "integer",
+                            "description" : ""
+                          }
+                        },
+                        "description" : "com.thm.omniseek.model.entity.Photo"
+                      }
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/photo/listByUser/{userId}" : {
+      "get" : {
+        "summary" : "listPhotosByUser",
+        "description" : "listPhotosByUser",
+        "parameters" : [ {
+          "name" : "userId",
+          "in" : "path",
+          "description" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "array",
+                      "description" : "",
+                      "items" : {
+                        "type" : "object",
+                        "properties" : {
+                          "photoId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "userId" : {
+                            "type" : "integer",
+                            "description" : ""
+                          },
+                          "photoUrl" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "photoName" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "createTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "updateTime" : {
+                            "type" : "string",
+                            "description" : ""
+                          },
+                          "isDelete" : {
+                            "type" : "integer",
+                            "description" : ""
+                          }
+                        },
+                        "description" : "com.thm.omniseek.model.entity.Photo"
+                      }
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/search/all" : {
+      "post" : {
+        "summary" : "searchAll",
+        "description" : "searchAll",
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "type" : "object",
+                "properties" : {
+                  "current" : {
+                    "type" : "integer",
+                    "description" : "当前页号",
+                    "format" : "int64",
+                    "default" : 1
+                  },
+                  "pageSize" : {
+                    "type" : "integer",
+                    "description" : "页面大小",
+                    "format" : "int64",
+                    "default" : 10
+                  },
+                  "sortField" : {
+                    "type" : "string",
+                    "description" : "排序字段"
+                  },
+                  "sortOrder" : {
+                    "type" : "string",
+                    "description" : "排序顺序（默认升序）",
+                    "default" : "ascend"
+                  },
+                  "keyword" : {
+                    "type" : "string",
+                    "description" : ""
+                  },
+                  "type" : {
+                    "type" : "array",
+                    "description" : "",
+                    "items" : {
+                      "type" : "string"
+                    }
+                  }
+                },
+                "description" : ""
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "object",
+                  "properties" : {
+                    "code" : {
+                      "type" : "integer",
+                      "description" : ""
+                    },
+                    "data" : {
+                      "type" : "object",
+                      "properties" : {
+                        "userList" : {
+                          "type" : "array",
+                          "description" : "",
+                          "items" : {
+                            "type" : "object",
+                            "properties" : {
+                              "userId" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "userName" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "userPhone" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "createTime" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "updateTime" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "isDelete" : {
+                                "type" : "integer",
+                                "description" : ""
+                              }
+                            },
+                            "description" : "com.thm.omniseek.model.entity.User"
+                          }
+                        },
+                        "codeList" : {
+                          "type" : "array",
+                          "description" : "",
+                          "items" : {
+                            "type" : "object",
+                            "properties" : {
+                              "codeId" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "userId" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "codeContent" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "codeLang" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "createTime" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "updateTime" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "isDelete" : {
+                                "type" : "integer",
+                                "description" : ""
+                              }
+                            },
+                            "description" : "com.thm.omniseek.model.entity.Code"
+                          }
+                        },
+                        "pictureList" : {
+                          "type" : "array",
+                          "description" : "",
+                          "items" : {
+                            "type" : "object",
+                            "properties" : {
+                              "photoId" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "userId" : {
+                                "type" : "integer",
+                                "description" : ""
+                              },
+                              "photoUrl" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "photoName" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "createTime" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "updateTime" : {
+                                "type" : "string",
+                                "description" : ""
+                              },
+                              "isDelete" : {
+                                "type" : "integer",
+                                "description" : ""
+                              }
+                            },
+                            "description" : "com.thm.omniseek.model.entity.Photo"
+                          }
+                        }
+                      },
+                      "description" : ""
+                    },
+                    "message" : {
+                      "type" : "string",
+                      "description" : ""
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "com.thm.omniseek.model.entity.Code" : {
+        "type" : "object",
+        "properties" : {
+          "codeId" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "userId" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "codeContent" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "codeLang" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "createTime" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "updateTime" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "isDelete" : {
+            "type" : "integer",
+            "description" : ""
+          }
+        },
+        "description" : "com.thm.omniseek.model.entity.Code"
+      },
+      "com.thm.omniseek.model.entity.User" : {
+        "type" : "object",
+        "properties" : {
+          "userId" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "userName" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "userPhone" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "createTime" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "updateTime" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "isDelete" : {
+            "type" : "integer",
+            "description" : ""
+          }
+        },
+        "description" : "com.thm.omniseek.model.entity.User"
+      },
+      "com.thm.omniseek.model.entity.Photo" : {
+        "type" : "object",
+        "properties" : {
+          "photoId" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "userId" : {
+            "type" : "integer",
+            "description" : ""
+          },
+          "photoUrl" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "photoName" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "createTime" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "updateTime" : {
+            "type" : "string",
+            "description" : ""
+          },
+          "isDelete" : {
+            "type" : "integer",
+            "description" : ""
+          }
+        },
+        "description" : "com.thm.omniseek.model.entity.Photo"
+      },
+      "com.thm.omniseek.model.vo.SearchVO" : {
+        "type" : "object",
+        "properties" : {
+          "userList" : {
+            "type" : "array",
+            "description" : "",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "userId" : {
+                  "type" : "integer",
+                  "description" : ""
+                },
+                "userName" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "userPhone" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "createTime" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "updateTime" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "isDelete" : {
+                  "type" : "integer",
+                  "description" : ""
+                }
+              },
+              "description" : "com.thm.omniseek.model.entity.User"
+            }
+          },
+          "codeList" : {
+            "type" : "array",
+            "description" : "",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "codeId" : {
+                  "type" : "integer",
+                  "description" : ""
+                },
+                "userId" : {
+                  "type" : "integer",
+                  "description" : ""
+                },
+                "codeContent" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "codeLang" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "createTime" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "updateTime" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "isDelete" : {
+                  "type" : "integer",
+                  "description" : ""
+                }
+              },
+              "description" : "com.thm.omniseek.model.entity.Code"
+            }
+          },
+          "pictureList" : {
+            "type" : "array",
+            "description" : "",
+            "items" : {
+              "type" : "object",
+              "properties" : {
+                "photoId" : {
+                  "type" : "integer",
+                  "description" : ""
+                },
+                "userId" : {
+                  "type" : "integer",
+                  "description" : ""
+                },
+                "photoUrl" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "photoName" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "createTime" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "updateTime" : {
+                  "type" : "string",
+                  "description" : ""
+                },
+                "isDelete" : {
+                  "type" : "integer",
+                  "description" : ""
+                }
+              },
+              "description" : "com.thm.omniseek.model.entity.Photo"
+            }
+          }
+        },
+        "description" : ""
+      }
+    }
+  }
+}

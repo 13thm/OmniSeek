@@ -1,0 +1,139 @@
+/* 全局搜索容器 */
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* 搜索框头部 */
+.search-header {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.search-input {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.1);
+}
+
+.search-button {
+    padding: 10px 20px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+}
+
+.search-button:hover {
+    background-color: #1d4ed8;
+}
+
+/* 标签切换 */
+.search-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e7eb;
+    flex-wrap: wrap;
+}
+
+.tab-item {
+    padding: 10px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    font-size: 16px;
+    transition: all 0.2s ease;
+}
+
+.tab-item:hover {
+    color: #2563eb;
+}
+
+.tab-item.active {
+    border-bottom-color: #2563eb;
+    color: #2563eb;
+    font-weight: 500;
+}
+
+/* 搜索结果区域 */
+.search-result {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.result-item {
+    padding: 15px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    background-color: #fff;
+    transition: box-shadow 0.2s ease;
+}
+
+.result-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.result-item h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    color: #111827;
+}
+
+.result-item p {
+    margin: 0 0 6px 0;
+    color: #6b7280;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 代码样式 */
+.code-pre {
+    margin: 8px 0;
+    padding: 10px;
+    background-color: #f9fafb;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border: 1px solid #e5e7eb;
+}
+
+/* 图片链接样式 */
+.photo-link {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.photo-link:hover {
+    text-decoration: underline;
+}
+
+/* 空结果/加载中 */
+.empty-result {
+    text-align: center;
+    padding: 40px;
+    color: #6b7280;
+    font-size: 16px;
+    border: 1px dashed #e5e7eb;
+    border-radius: 4px;
+    margin-top: 20px;
+}

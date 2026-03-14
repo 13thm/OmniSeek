@@ -30,10 +30,11 @@ public class CodeServiceImpl extends ServiceImpl<CodeMapper, Code> implements Co
         }
         String text = userQueryRequest.getKeyword();
         QueryWrapper<Code> queryWrapper = new QueryWrapper<>();
-        if(ObjectUtil.isNotEmpty(text)){
-            queryWrapper.like(ObjectUtil.isEmpty(text), "code_content", text);
-            queryWrapper.like(ObjectUtil.isEmpty(text), "code_lang", text);
-        }
+        queryWrapper.and(ObjectUtil.isNotEmpty(text), qw -> qw
+                .like("code_content", text)
+                .or()
+                .like("code_lang", text)
+        );
         return queryWrapper;
     }
 }
