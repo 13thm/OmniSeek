@@ -11,6 +11,7 @@ const Search = () => {
         userList: [],
         codeList: [],
         pictureList: [],
+        novelList: [],
     });
     const [loading, setLoading] = useState(false);
 
@@ -24,7 +25,7 @@ const Search = () => {
         setLoading(true);
         searchAll({
             keyword: searchKeyword,
-            types: ['user', 'code', 'photo'], // 始终搜索所有类型，前端控制展示
+            types: ['user', 'code', 'photo','novel'], // 始终搜索所有类型，前端控制展示
         })
             .then((res) => {
                 const { data } = res;
@@ -34,6 +35,7 @@ const Search = () => {
                         userList: data.data.userList || [],
                         codeList: data.data.codeList || [],
                         pictureList: data.data.pictureList || [],
+                        novelList: data.data.novelList || [],
                     });
                 } else {
                     alert(data.message || '搜索失败');
@@ -74,11 +76,15 @@ const Search = () => {
             case 'photo':
                 renderData = searchResults.pictureList;
                 break;
+            case 'novel':
+                renderData = searchResults.novelList;
+                break;
             case 'all':
                 // 合并所有类型结果并标记类型，方便渲染区分
                 renderData = [
                     ...searchResults.userList.map((item) => ({ ...item, type: 'user' })),
                     ...searchResults.codeList.map((item) => ({ ...item, type: 'code' })),
+                    ...searchResults.novelList.map((item) => ({ ...item, type: 'novel' })),
                     ...searchResults.pictureList.map((item) => ({ ...item, type: 'photo' })),
                 ];
                 break;
@@ -154,6 +160,15 @@ const Search = () => {
                             </div>
                         );
                     }
+                    if (item.type === 'novel' || activeTab === 'novel') {
+                        return (
+                            <div key={`novel-${item.id || index}`} className="result-item">
+                                <h3>名字：{item.novelName}</h3>
+                                <p>ID：{item.id}</p>
+                                <p>描述：{item.description}</p>
+                            </div>
+                        );
+                    }
                     return null;
                 })}
             </div>
@@ -216,6 +231,12 @@ const Search = () => {
                     onClick={() => setActiveTab('photo')}
                 >
                     图片
+                </div>
+                <div
+                    className={`tab-item ${activeTab === 'novel' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('novel')}
+                >
+                    小说
                 </div>
             </div>
 
