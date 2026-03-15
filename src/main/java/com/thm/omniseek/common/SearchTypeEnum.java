@@ -18,7 +18,11 @@ public enum SearchTypeEnum {
     /**
      * 照片搜索类型
      */
-    PHOTO("照片","photo");
+    PHOTO("照片","photo"),
+    /**
+     * 照片搜索类型
+     */
+    NOVEL("小说","novel");
 
     private final String text;
 

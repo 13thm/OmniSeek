@@ -6,11 +6,13 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.thm.omniseek.common.ErrorCode;
 import com.thm.omniseek.common.SearchTypeEnum;
 import com.thm.omniseek.datasource.CodeDataSource;
+import com.thm.omniseek.datasource.NovelDataSource;
 import com.thm.omniseek.datasource.PhotoDataSource;
 import com.thm.omniseek.datasource.UserDataSource;
 import com.thm.omniseek.exception.BusinessException;
 import com.thm.omniseek.model.dto.SearchRequest;
 import com.thm.omniseek.model.entity.Code;
+import com.thm.omniseek.model.entity.Novel;
 import com.thm.omniseek.model.entity.Photo;
 import com.thm.omniseek.model.entity.User;
 import com.thm.omniseek.model.vo.SearchVO;
@@ -36,6 +38,9 @@ public class SearchFacade {
 
     @Resource
     private PhotoDataSource photoDataSource;
+
+    @Resource
+    private NovelDataSource novelDataSource;
 
     public SearchVO searchAll(@RequestBody SearchRequest searchRequest) {
         String searchText = searchRequest.getKeyword();
@@ -77,6 +82,14 @@ public class SearchFacade {
                         });
                         futureMap.put(SearchTypeEnum.PHOTO, photoTask);
                         break;
+                    case NOVEL:
+                        CompletableFuture<Page<Novel>> novelTask = CompletableFuture.supplyAsync(() -> {
+                            SearchRequest query = new SearchRequest();
+                            query.setKeyword(searchText);
+                            return novelDataSource.doSearch(searchText, current, pageSize);
+                        });
+                        futureMap.put(SearchTypeEnum.NOVEL,novelTask);
+                        break;
                     default:
                         CompletableFuture<Void> emptyTask = CompletableFuture.completedFuture(null);
                         futureMap.put(typeEnum, emptyTask);
@@ -93,7 +106,7 @@ public class SearchFacade {
                 Thread.currentThread().interrupt(); // 恢复中断状态
                 futureMap.values().forEach(future -> future.cancel(true));
             } catch (ExecutionException e) {
-                throw new BusinessException(ErrorCode.SYSTEM_ERROR, "任务执行失败"+ e.getCause().getMessage());
+                throw new BusinessException(ErrorCode.SYSTEM_ERROR, "任务执行失败" + e.getCause().getMessage());
             }
             try {
                 // 准获取每个枚举对应的任务结果
@@ -112,10 +125,15 @@ public class SearchFacade {
                     Page<Photo> photoPage = photoFuture.get();
                     searchVO.setPictureList(photoPage.getRecords());
                 }
+                if (futureMap.containsKey(SearchTypeEnum.NOVEL)) {
+                    CompletableFuture<Page<Novel>> novelFuture = (CompletableFuture<Page<Novel>>) futureMap.get(SearchTypeEnum.NOVEL);
+                    Page<Novel> novelPage = novelFuture.get();
+                    searchVO.setNovelList(novelPage.getRecords());
+                }
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             } catch (ExecutionException e) {
-                throw new BusinessException(ErrorCode.SYSTEM_ERROR,"CODE任务执行失败：" + e.getCause().getMessage());
+                throw new BusinessException(ErrorCode.SYSTEM_ERROR, "任务执行失败：" + e.getCause().getMessage());
             }
         }
         return searchVO;

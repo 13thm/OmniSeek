@@ -52,11 +52,24 @@
 <!--            <artifactId>canal.client</artifactId>-->
 <!--            <version>1.1.0</version>-->
 <!--        </dependency>-->
-        <!-- elasticsearch-->
+        <!-- Elasticsearch RestHighLevelClient -->
+        <!-- Spring Boot 集成 ES 核心依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
+            <!-- 注意：Spring Boot 版本需与 ES 7.17.0 适配，推荐 2.7.x 版本 -->
             <version>2.7.18</version>
+        </dependency>
+        <!-- ES 客户端核心依赖（7.17.0 版本） -->
+        <dependency>
+            <groupId>org.elasticsearch.client</groupId>
+            <artifactId>elasticsearch-rest-high-level-client</artifactId>
+            <version>7.17.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch</artifactId>
+            <version>7.17.0</version>
         </dependency>
 
         <!-- https://doc.xiaominfo.com/knife4j/documentation/get_start.html-->

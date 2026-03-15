@@ -7,7 +7,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.thm.omniseek.model.dto.SearchRequest;
 import com.thm.omniseek.model.entity.Code;
 import com.thm.omniseek.model.entity.User;
+import org.springframework.stereotype.Service;
 
+@Service
 public interface CodeService extends IService<Code> {
     Page<Code> listCodeVOByPage(SearchRequest query);
 

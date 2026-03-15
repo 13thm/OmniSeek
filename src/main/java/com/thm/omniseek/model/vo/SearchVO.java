@@ -3,6 +3,7 @@ package com.thm.omniseek.model.vo;
 
 
 import com.thm.omniseek.model.entity.Code;
+import com.thm.omniseek.model.entity.Novel;
 import com.thm.omniseek.model.entity.Photo;
 import com.thm.omniseek.model.entity.User;
 import lombok.Data;
@@ -17,6 +18,8 @@ public class SearchVO implements Serializable {
     private List<Code> codeList;
 
     private List<Photo> pictureList;
+
+    private List<Novel> novelList;
 
     private static final long serialVersionUID = 1L;
 }
