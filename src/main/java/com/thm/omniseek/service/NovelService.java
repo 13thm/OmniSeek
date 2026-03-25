@@ -1,6 +1,6 @@
 package com.thm.omniseek.service;
 
-
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.thm.omniseek.model.dto.SearchRequest;
@@ -10,4 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public interface NovelService extends IService<Novel> {
     Page<Novel> listNovelVOByPage(SearchRequest query);
+
+    QueryWrapper<Novel> getQueryWrapper(SearchRequest userQueryRequest);
 }
